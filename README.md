@@ -1,2 +1,3 @@
 # Monitor_linea_host
---se cuenta con una pagiena web la cual   muestra tanto los host activos o operativos con una ventana de ingreso  donde da acceso al panel de administracion donde nos muestra los host creados y  los host habiñitados que se encuentran caidos  en un  lapso de 7 minutos
+--se cuenta con una pagiena web la cual   muestra tanto los host activos o operativos con una ventana de ingreso  donde da acceso al panel de administracion donde nos muestra los host creados y  los host habiñitados que se encuentran caidos  en un  lapso de 7 minutos se trabajo  framework flask de python 
+-el ping recurcivo consta  de hacer una consulta a la base de datos donde filtramos o vlaidamos si la tienda esta habilitada , se tiene una clase llamada ping que la encargada es de realizar el ping al host y retornarnos si la tienda esta "ONLINE" o "OFFLINE" segun sea el caso fue trabajado con java
