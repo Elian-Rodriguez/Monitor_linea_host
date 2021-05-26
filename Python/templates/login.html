@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+{% with messages = get_flashed_messages()  %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="sidenav">
+  <div class="login-main-text">
+     <h2>Monitor de Accesos. <br> Ingreso</h2>
+     <!--p>Pagina de administacion </p-->
+  </div>
+</div>
+<div class="main">
+  <div class="col-md-6 col-sm-12">
+     <div class="login-form">
+        <form action="/index_admin" method="POST" >
+           <div class="form-group">
+              <label>Nombre usuario</label>
+              <input type="text" name="user" class="form-control" placeholder="NOMBRE DE USURIO">
+           </div>
+           <div class="form-group">
+              <label>Password</label>
+              <input type="password"  name="pass" class="form-control" placeholder="Password">
+           </div>
+           <button type="submit" class="btn btn-lg btn-primary">Login</button>
+           <!--button type="submit" class="btn btn-secondary">Register</button-->
+        </form>
+     </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

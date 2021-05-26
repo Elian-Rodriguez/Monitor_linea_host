@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+
+{% with messages = get_flashed_messages()  %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<div class="row">
+<div class ="col-6 col-md-4"> 
+<form action="/add_shop" method="POST">
+
+    <input type="number" class="form-control" name="CODIGO_NCR" placeholder="CODIGO_NCR">
+    <input type="text" class="form-control" name="NOMBRE_TIENDA" placeholder="NOMBRE_TIENDA">
+    <input type="text" class="form-control" name="CODIGO_SAP" placeholder="CODIGO_SAP">
+    <input type="text" class="form-control" name="IP_SERVER" placeholder="IP_SERVER">
+    <input type="text" class="form-control" name="IP_PC" placeholder="IP_PC">
+    <input type="text" class="form-control" name="IP_CAMARAS" placeholder="IP_CAMARAS">
+    <input type="text" class="form-control" name="ESTADO" placeholder="ESTADO">
+    <input type="number" class="form-control"  name="ABIERTA" placeholder="ABIERTA">
+    <button class="btn btn-primary btn-block"  type="submit">Guardar</button>
+    
+</form>
+<BR> 
+<!-- TABLA OFFLINE-->
+<table class="table table-striped table-hover table-bordered table-sm bg-white">
+<thead> 
+<tr> 
+  <td colspan="2" class="text-center" > TIENDAS FUERA DE LINEA </td>
+  </tr>
+  <tr>
+    <td>NOMBRE_TIENDA</td>
+    <TD> IP_SERVER</TD>
+    </tr>
+
+  </thead>
+  <TBODY>
+    {% for offline in offlines %}
+          <tr class="danger">
+            
+            <td>{{offline.1}}</td>
+            <td>{{offline.3}}</td>
+            
+          </tr>
+    {% endfor %}
+
+
+
+  </TBODY>
+
+</table>
+
+</div>
+
+
+<div class="col-12 col-md-8 table-responsive">
+  <!--TABLA DE RESULTADOS-->
+<table class="table table-striped table-hover table-bordered table-sm bg-white">
+  <thead>
+    <!--tr>
+      <Td colspan="7">
+        <form action="" method="POST" class="text-center"> <a  href="/">
+          TIENDAS REGIONAL BOGOTA </a>  <input type="text" name="SEARCH" placeholder="SEARCH">
+        <button type="summit">SEARCH</button>
+        </form> 
+      </td>
+    </tr-->
+    <tr>
+      <td>COD NCR</td>
+      <td>NOMBRE TIENDA</td>
+      <td>COD SAP</td>
+      <td>Camaras</td>
+      <td>Web_Front</td>
+      <td>Web_Report</td>  
+      <td>Accion</td> 
+      
+      </tr>
+  </thead>
+  <tbody>
+    {% for shop in shops %}
+          <tr>
+            <td>{{shop.0}}</td>
+            <td>{{shop.1}}</td>
+            <td>{{shop.2}}</td>
+            <td><a href="http://{{shop.5}}"  target="_blank">{{shop.5}}</a></td>
+            <td><a href="https://{{shop.3}}:8443/WebFrontBase/~./core/login.zul"    target="_blank">{{shop.3}}</a></td>
+            <td><a href="http://{{shop.4}}:8080/webReports/" target="_blank">{{shop.4}}</a></td>
+            <td><div class="btn-group"></div><a href="/edit_shop/{{shop.0}}" class="btn btn-sm btn-secondary btn-warning">Edit</a><a href="/delete_shop/{{shop.0}}" class="btn btn-sm btn-secondary  btn-danger">Delete</a></div></td> </td>
+          </tr>
+    {% endfor %}
+
+
+  </tbody>
+
+  </table>
+
+
+  </div>
+
+
+{% endblock %}
