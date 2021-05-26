@@ -1,7 +1,7 @@
 #ESTE ES EL CONTROLADOR
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
-#from werkzeug.contrib.sessions import FilesystemSessionStore
+
 import Tienda 
 app = Flask(__name__)
 
@@ -76,7 +76,6 @@ def add_shop():
 @app.route('/update_shop/<string:CODIGO_NCR>', methods=['POST'])
 def update_shop(CODIGO_NCR):
     if request.method == 'POST':
-        #CODIGO_NCR = request.form['CODIGO_NCR']
         IP_SERVER = request.form['IP_SERVER']
         IP_PC = request.form['IP_PC']
         IP_CAMARAS = request.form['IP_CAMARAS']
