@@ -1,0 +1,17 @@
+
+[1;32m1[0;0m[1;32m1[0;0m[1;32m1[0;0m[1;32m1[0;0m[1;32m1[0;0m[1;32m1[0;0m[1;32m1[0;0m[1;32m1[0;0m[1;32m1[0;0m[1;32m1[0;0m[1;31m0[0;0m[1;32m1[0;0m
+
+[1;34mPos Server [1;32mactivo [1;36m:)[0;0m 
+[1;34mFDS [1;32mactivo [1;36m:)[0;0m 
+[1;34mInterfaceService [1;32mactivo [1;36m:)[0;0m 
+[1;34mIDCReader [1;32mactivo [1;36m:)[0;0m 
+[1;34mGateway [1;32mactivo [1;36m:)[0;0m 
+[1;34mPostgres [1;32mactivo [1;36m:)[0;0m 
+[1;34mWildfly [1;32mactivo [1;36m:)[0;0m 
+[1;34mArsPluMnt [1;32mactivo [1;36m:)[0;0m 
+[1;34mWebfront EOD [1;32mactivo [1;36m:)[0;0m 
+[1;34mautoEOD [1;32mactivo [1;36m:)[0;0m 
+[1;34mPOSServerRest [0;31mno está activo [1;33m:([0;0m 
+[1;34mUserWatcher [1;32mactivo [1;36m:)[0;0m 
+
+the windows will close automatically in 10 seconds
