@@ -32,59 +32,59 @@ def login():
 @app.route('/search', methods=['POST'])
 def search():
     if request.method == 'POST':
-        buscar = request.form['Buscador']
-        data=Tienda.buscar_nombre_tienda(buscar) 
+buscar = request.form['Buscador']
+data=Tienda.buscar_nombre_tienda(buscar) 
     return render_template('Search.html', shops=data)
 
 #INDEX PARA ADMINISTRADOR  O PAGIANA DE ADMINISTRACION
 @app.route('/index_admin',  methods=['POST'])
 def index_admin():
     if request.method == 'POST':
-        usuario = request.form['user']
-        password = request.form['pass']
-        print("usuario : " + usuario)
-        print("clave : " + password)
-        if (usuario == "Homero" and password == "Linux-2020"):
-            data = Tienda.listar_tiendas()
-            data_2=Tienda.listar_offline()
-            menssanges = 'Ingreso Autorizado'
-            flash(menssanges)
-            return render_template('index_admin.html', shops=data, offlines=data_2)
-        else:
-            menssanges = 'Ingreso Incorrecto, Intente Nuevamente'
-            flash(menssanges)
-            return redirect(url_for('login'))
+usuario = request.form['user']
+password = request.form['pass']
+print("usuario : " + usuario)
+print("clave : " + password)
+if (usuario == "Homero" and password == "Linux-2020"):
+    data = Tienda.listar_tiendas()
+    data_2=Tienda.listar_offline()
+    menssanges = 'Ingreso Autorizado'
+    flash(menssanges)
+    return render_template('index_admin.html', shops=data, offlines=data_2)
+else:
+    menssanges = 'Ingreso Incorrecto, Intente Nuevamente'
+    flash(menssanges)
+    return redirect(url_for('login'))
 
 #MENU DE CREACION DE TIENDA NUEVA
 @app.route('/add_shop', methods=['POST'])
 def add_shop():
     if request.method == 'POST':
-        CODIGO_NCR = request.form['CODIGO_NCR']
-        NOMBRE_TIENDA = request.form['NOMBRE_TIENDA']
-        CODIGO_SAP = request.form['CODIGO_SAP']
-        IP_SERVER = request.form['IP_SERVER']
-        IP_PC = request.form['IP_PC']
-        IP_CAMARAS = request.form['IP_CAMARAS']
-        ESTADO = request.form['ESTADO']
-        ABIERTA = request.form['ABIERTA']
-        Tienda.agregar_tienda(CODIGO_NCR, NOMBRE_TIENDA, CODIGO_SAP, IP_SERVER, IP_PC, IP_CAMARAS, ABIERTA, ESTADO)
-        menssanges = 'Store Added Satisfactorily'
-        flash(menssanges)
+CODIGO_NCR = request.form['CODIGO_NCR']
+NOMBRE_TIENDA = request.form['NOMBRE_TIENDA']
+CODIGO_SAP = request.form['CODIGO_SAP']
+IP_SERVER = request.form['IP_SERVER']
+IP_PC = request.form['IP_PC']
+IP_CAMARAS = request.form['IP_CAMARAS']
+ESTADO = request.form['ESTADO']
+ABIERTA = request.form['ABIERTA']
+Tienda.agregar_tienda(CODIGO_NCR, NOMBRE_TIENDA, CODIGO_SAP, IP_SERVER, IP_PC, IP_CAMARAS, ABIERTA, ESTADO)
+menssanges = 'Store Added Satisfactorily'
+flash(menssanges)
     return redirect(url_for('index'))
 
 #RETORNO DE BUSQUEDA DE TIENDA Y MENU DE EDICION
 @app.route('/update_shop/<string:CODIGO_NCR>', methods=['POST'])
 def update_shop(CODIGO_NCR):
     if request.method == 'POST':
-        IP_SERVER = request.form['IP_SERVER']
-        IP_PC = request.form['IP_PC']
-        IP_CAMARAS = request.form['IP_CAMARAS']
-        ESTADO = request.form['ESTADO']
-        ABIERTA = request.form['ABIERTA']
-        Tienda.actualizar_tienda(IP_SERVER, IP_PC, IP_CAMARAS, ABIERTA, ESTADO, CODIGO_NCR)
-        menssanges = 'Store Update Satisfactorily'
-        flash(menssanges)
-        return redirect(url_for('index'))
+IP_SERVER = request.form['IP_SERVER']
+IP_PC = request.form['IP_PC']
+IP_CAMARAS = request.form['IP_CAMARAS']
+ESTADO = request.form['ESTADO']
+ABIERTA = request.form['ABIERTA']
+Tienda.actualizar_tienda(IP_SERVER, IP_PC, IP_CAMARAS, ABIERTA, ESTADO, CODIGO_NCR)
+menssanges = 'Store Update Satisfactorily'
+flash(menssanges)
+return redirect(url_for('index'))
 
 #ACTUALIZACION DE TIENSA SOLO PERMITE IP Y ESTADO
 @app.route('/edit_shop/<string:CODIGO_NCR>')

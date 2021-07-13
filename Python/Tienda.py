@@ -34,20 +34,20 @@ def agregar_tienda(CODIGONCR, NOMBRETIENDA, CODIGOSAP, IPSERVER, IPPC, IPCAMARAS
     cur = mysql.connection.cursor()
     print(CODIGONCR, NOMBRETIENDA, CODIGOSAP, IPSERVER, IPPC, IPCAMARAS, ABIERT, ESTAD)
     cur.execute('INSERT INTO TIENDAS.Tienda (Cod_ncr, NOMBRE, CODIGO_SAP, IP_SERVER, IP_PC, IP_CAMARAS, Abierta, Estado) VALUES(%s, %s, %s, %s, %s, %s, %s, %s ); ',
-                    (CODIGONCR, NOMBRETIENDA, CODIGOSAP, IPSERVER, IPPC, IPCAMARAS, ABIERT, ESTAD))
+    (CODIGONCR, NOMBRETIENDA, CODIGOSAP, IPSERVER, IPPC, IPCAMARAS, ABIERT, ESTAD))
     mysql.connection.commit()
     
 def actualizar_tienda(IPSERVER, IPPC, IPCAMARAS, ABIERT, ESTAD, CODIGONCR):
     cur = mysql.connection.cursor()
     cur.execute("""
-        UPDATE TIENDAS.Tienda
-            SET IP_SERVER = %s, 
-            IP_PC =  %s, 
-            IP_CAMARAS=  %s, 
-            Abierta =  %s, 
-            Estado =  %s 
-        WHERE (Cod_ncr = %s);       
-        """, (IPSERVER, IPPC, IPCAMARAS, ABIERT, ESTAD, CODIGONCR))
+UPDATE TIENDAS.Tienda
+    SET IP_SERVER = %s, 
+    IP_PC =  %s, 
+    IP_CAMARAS=  %s, 
+    Abierta =  %s, 
+    Estado =  %s 
+WHERE (Cod_ncr = %s);       
+""", (IPSERVER, IPPC, IPCAMARAS, ABIERT, ESTAD, CODIGONCR))
     mysql.connection.commit()
 
 
@@ -60,5 +60,5 @@ def mostrar_tienda(CODNCR):
 def eliminar_tienda(CODNCR):
     cur = mysql.connection.cursor()
     cur.execute(
-        'DELETE FROM TIENDAS.Tienda WHERE (`Cod_ncr` = {0});'.format(CODNCR))
+'DELETE FROM TIENDAS.Tienda WHERE (`Cod_ncr` = {0});'.format(CODNCR))
     mysql.connection.commit()

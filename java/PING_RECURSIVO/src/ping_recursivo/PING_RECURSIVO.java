@@ -41,11 +41,18 @@ public class PING_RECURSIVO {
 }
 /*
 CREATE USER 'bart'@'%' IDENTIFIED BY 'Linux-1234';
-GRANT ALL PRIVILEGES ON * . * TO 'lisa'@'%';
-FLUSH PRIVILEGES;
+CREATE USER 'lisa'@'%'  IDENTIFIED BY 'Linux-1234';
+CREATE USER 'homero'@'%' IDENTIFIED BY 'Linux-1234';
 
+GRANT ALL PRIVILEGES ON * . * TO 'lisa'@'%';
+GRANT ALL PRIVILEGES ON * . * TO 'bart'@'%';
+FLUSH PRIVILEGES ON * . * TO 'homero'@'%';
+FLUSH PRIVILEGES;
+Koba06
 
 ALTER USER 'bart'@'%' IDENTIFIED WITH mysql_native_password BY 'Linux-1234';
+ALTER USER 'lisa'@'%' IDENTIFIED WITH mysql_native_password BY 'Linux-1234';
+ALTER USER 'homero'@'%' IDENTIFIED WITH mysql_native_password BY 'Linux-1234';
 */
 
 /*
