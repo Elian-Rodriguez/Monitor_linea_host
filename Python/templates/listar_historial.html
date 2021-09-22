@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<table class="table table-striped table-hover table-bordered table-sm bg-white">
+    <thead>
+        <tr>
+            
+        </tr>
+        <tr>
+         
+            <td class=" text-center">ID</td>
+            <td class="text-center">FECHA</td>
+            <td class="text-center">ESTADO</td>
+            <td class=" text-center">COD  NCR</td>
+            <td class=" text-center">COD  SAP</td>
+            <td class=" text-center">TIENDA</td>
+            <td class=" text-center">IP SERVER</td>
+            <td class=" text-center">IP PC</td>
+            
+            
+            </tr>
+        </thead>
+        <tbody>
+          {% for historia in historial %}
+                <tr>
+                  <td>{{historia.0}}</td>
+                  <td>{{historia.1}}</td>
+                  <td>{{historia.2}}</td>
+                  <td>{{historia.3}}</td>
+                  <td>{{historia.4}}</td>
+                  <td>{{historia.5}}</td>
+                  <td>{{historia.6}}</td>
+                  <td>{{historia.7}}</td>
+                  
+  
+                 
+                 </tr>
+          {% endfor %}
+      
+      
+        </tbody>
+      
+        </table>
+      </div>
+{% endblock %}
